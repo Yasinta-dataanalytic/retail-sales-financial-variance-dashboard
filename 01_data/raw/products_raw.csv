@@ -1,0 +1,64 @@
+﻿Product ID,Product Name,Category,Unit Cost,Unit Price,Supplier,Launch Date,Active?
+P001 ,Smartphone,Electronics,"Tsh 999,500",1277000.00,Tanga Traders,31-Jan-2021,Y
+ P002 ,Laptop,Electronics,"TZS 1,762,000","TZS 2,078,500",Lake Zone Supplies,2024-02-12,1
+P003,LED TV 43in,Electronic,"Tsh 570,000",722000,Bakhresa Group,"August 10, 2020",Y
+P004,bluetooth speaker,electronics,163000,192000,Tanga Traders,2022-09-15,Y
+P005,Tablet,electronics,"TZS 660,600","TZS 550,500",Simba Trading,10-16-2019,1
+P006,Power Bank,electronics,30500,35000,Simba Trading,44479,Y
+P007,Wi-Fi Router,Electronics,65500,"75,500",Azam Distributors,19/12/2020,1
+ P008,Smart Watch,Electronics,"TZS 244,500","Tsh 278,500",Sahara Wholesalers,31-Mar-2022,Y
+P009,HEADPHONES,Electronics,"214,000","254,000",Lake Zone Supplies,2022-01-21,Y
+P010,Camera,Electronic,"TZS 464,000","578,000",Azam Distributors,2021-03-31,Y
+p011,Refrigerator,HOME APPLIANCES ,1232500,"TZS 1,653,000",Lake Zone Supplies,01/02/2023,TRUE
+p012,Microwave,Appliances,"215,500","TZS 276,000",Tanga Traders,43393,TRUE
+P013,Blender,Home Appliances,53500,"TZS 70,500",Azam Distributors,2021-01-10,Yes
+P014,ELECTRIC KETTLE,home appliances,64000,"TZS 80,500",Azam Distributors,2020/07/27,1
+P015,Washing Machine,home appliances,"TZS 850,000",1201000,Sahara Wholesalers,12-May-2024,Y
+P016,Gas  Cooker,home appliances,"TZS 382,500",474500,Simba Trading,23-Feb-2023,Y
+ P017 ,Iron Box,Home Appliances,"TZS 29,500","TZS 38,500",Lake Zone Supplies,2020/12/12,Y
+P018,Standing Fan,Home Appliance,"Tsh 118,800",108000,Tanga Traders,"July 21, 2019",TRUE
+ P019 ,Water Dispenser,Home Appliances,136500,"191,500",Simba Trading,2019-10-18,Yes
+P020,Rice Cooker,HOME APPLIANCES ,"88,000","114,000",Sahara Wholesalers,2023-04-02,Yes
+,,,,,,,
+P021,Rice 5kg,groceries,"TZS 23,000",28500,Coastal Distributors,04-15-2019,Yes
+P022,Cooking Oil 5L,Groceries,23000.00,28000,Bakhresa Group,2019-10-10,No
+P023,Sugar 2kg,Groceries,8000,"9,000",Tanga Traders,2023-08-13,Y
+P024,Wheat  Flour  2kg,Groceries,"4,500","TZS 5,000",Simba Trading,45180,Y
+P025,Tea Leaves 500g,groceries,7000,"8,000",Simba Trading,2023/12/13,TRUE
+P026,Milk 1L x6,Groceries,13500,"TZS16,500",Simba Trading,26-Jan-2022,1
+P027,Maize Flour 5kg,Groceries,"Tsh 9,000","Tsh 10,500",Azam Distributors,43423,1
+P028,Bottled Water x12,Groceries,"TZS 8,500",9500,Tanga Traders,22-Dec-2023,Y
+p029,Soda Crate,Groceries,"21,500","Tsh 25,000",Simba Trading,2020-12-21,TRUE
+P030,laundry soap,groceries,6500,"Tsh 7,500",Bakhresa Group,2020/04/03,TRUE
+P031,Men's  Shirt,FASHION ,"TZS 28,000",55000,Bakhresa Group,2023-10-21,1
+P032,Women's Dress,Fashion,"TZS 27,000","TZS 54,000",Kilimanjaro Imports,2024-03-18,1
+P033,Sneakers,Fashion,34000,61000.00,Simba Trading,30/08/2018,FALSE
+P034,Leather Handbag,Fashion,"TZS 37,500","75,500",Lake Zone Supplies,"October 07, 2023",TRUE
+p035,Jeans,fashion,"32,500","Tsh 61,500",Kilimanjaro Imports,27/05/2024,Yes
+P036,Kitenge Fabric,Fashion,"TZS 20,000","TZS 39,000",Coastal Distributors,2019-01-22,Y
+P037,School  Uniform,fashion,"TZS 18,000",35500,Kilimanjaro Imports,"August 10, 2018",No
+P038,SANDALS,fashion,"23,000","40,500",Bakhresa Group,"March 24, 2019",TRUE
+P039,Jacket,Fashion,,"TZS 124,500",Kilimanjaro Imports,2020-01-22,Yes
+ P040,Backpack,fashion,42000,91000.00,Kilimanjaro Imports,45355,N
+P041,BODY LOTION,Beauty,"13,000",25000.00,Azam Distributors,2019-01-18,Y
+P042,perfume,Beauty,"38,000",88500,Simba Trading,2022-07-01,Yes
+P043,Hair Oil,Beauty,2500,"TZS5,000",Tanga Traders,2023/02/07,1
+P044,Face Cream,BEAUTY ,32000,"TZS 58,000",Tanga Traders,26/03/2024,TRUE
+P045,shampoo,Beauty,"TZS 6,500","TZS 11,500",Kilimanjaro Imports,30/06/2024,Y
+ p046,Lipstick Set,Beauty,7000,"TZS 14,000",Tanga Traders,22/08/2023,N
+p047,Deodorant,Beauty,5500,"TZS 10,000",Sahara Wholesalers,2018/10/08,1
+P048,SUNSCREEN,Beauty,"TZS 9,500","TZS 23,000",Simba Trading,22-May-2024,Y
+P049,Hair Dryer,BEAUTY ,"Tsh 16,000","TZS 38,500",Kilimanjaro Imports,2024-07-18,1
+ P050 ,Nail Kit,Beauty,"6,500",12500,Lake Zone Supplies,2020/09/04,1
+P051,Exercise  Books  x12,Stationery,,12500.00,Azam Distributors,2021-07-19,0
+P052,Ballpoint Pens x50,STATIONERY ,10000.00,"Tsh 16,000",Coastal Distributors,2019-02-14,Yes
+P053,A4 PAPER REAM,Stationery,"Tsh 7,500","TZS 13,500",Azam Distributors,2021-11-30,Yes
+ P054,Marker Set,Stationery,"6,000",10500,Simba Trading,2024-02-04,Yes
+P055,Calculator,stationery,"29,000","TZS 44,500",Tanga Traders,2018-02-02,Y
+P056,School Bag,STATIONERY ,"Tsh 20,000",29500.00,Azam Distributors,2020-12-19,TRUE
+P057,stapler,Stationery,5500,10000,Bakhresa Group,2021-02-28,Y
+P058,File  Folders  x10,Stationery,"5,000","8,000",Simba Trading,17-Dec-2020,Yes
+P059,GEOMETRY SET,stationery,"Tsh 5,500",9500,Sahara Wholesalers,2022/10/01,0
+P060,Notebook A5,Stationery,2000,3500,Sahara Wholesalers,08/12/2020,TRUE
+P009,HEADPHONES,Electronics,"214,000","254,000",Lake Zone Supplies,2022-01-21,Y
+P032,Women's Dress,Fashion,"TZS 27,000","TZS 54,000",Kilimanjaro Imports,2024-03-18,1
