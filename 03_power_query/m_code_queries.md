@@ -162,13 +162,11 @@ in
 
 <details>
 <summary>Click to expand</summary>
-
-```m
-let
+```let
     Source = Csv.Document(File.Contents("C:\Users\USER\Downloads\sales_2024_raw.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
     #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"TransactionID", type text}, {"Txn_Date", type text}, {"StoreID", type text}, {"ProductID", type text}, {"Qty", type text}, {"Unit Price", type text}, {"Discount", type number}, {"Payment Method", type text}, {"Customer Type", type text}, {"Sales Rep", type text}, {"Total Amount", type text}, {"Notes", type text}}),
-    #"Added Custom" = Table.AddColumn(#"Changed Type", "Channel", each "Unassigned"),
+    #"Added Custom" = Table.AddColumn(#"Changed Type", "Channel", each "Unassgned"),
     #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"Sales Rep", "Sales Representative"}, {"Qty", "Quantity"}}),
     #"Appended Query" = Table.Combine({#"Renamed Columns", #"Sales 2025"}),
     #"Trimmed Text" = Table.TransformColumns(#"Appended Query",{{"ProductID", Text.Trim, type text}, {"StoreID", Text.Trim, type text}, {"TransactionID", Text.Trim, type text}}),
@@ -231,13 +229,30 @@ in
     #"Added Conditional Column" = Table.AddColumn(#"Capitalized Each Word1", "Payment Method Clean", each if Text.StartsWith([Payment Method], "Cash") then "Cash" else if Text.StartsWith([Payment Method], "Visa") then "Card" else if Text.StartsWith([Payment Method], "Master") then "Card" else if Text.StartsWith([Payment Method], "Debit") then "Card" else if Text.StartsWith([Payment Method], "Credit ") then "Card" else if Text.StartsWith([Payment Method], "Card") then "Card" else if Text.StartsWith([Payment Method], "Airtel") then "Airtel Money" else if Text.StartsWith([Payment Method], "Mixx") then "Mixx by Yas" else if Text.StartsWith([Payment Method], "Tigo") then "Mixx by Yas" else if Text.StartsWith([Payment Method], "Mpesa") then "M-Pesa" else if Text.StartsWith([Payment Method], "M Pesa") then "M-Pesa" else if Text.StartsWith([Payment Method], "Bank") then "Bank Transfer" else if Text.StartsWith([Payment Method], "Direct") then "Bank Transfer" else [Payment Method]),
     #"Reordered Columns6" = Table.ReorderColumns(#"Added Conditional Column",{"TransactionID", "Transaction Date", "StoreID", "ProductID", "Quantity Clean", "Unit Price Clean", "Discount Clean", "Total Clean", "Payment Method", "Payment Method Clean", "Customer Type", "Sales Representative", "Notes", "Channel", "Return"}),
     #"Removed Columns5" = Table.RemoveColumns(#"Reordered Columns6",{"Payment Method"}),
-    #"Added Conditional Column1" = Table.AddColumn(#"Removed Columns5", "Customer Clean Type", each if Text.StartsWith([Customer Type], "Whole") then "Wholesale" else if Text.StartsWith([Customer Type], "Corp") then "Corpoate" else if Text.StartsWith([Customer Type], "Retail") then "Retail" else [Customer Type]),
+    #"Added Conditional Column1" = Table.AddColumn(#"Removed Columns5", "Customer Clean Type", each if Text.StartsWith([Customer Type], "Whole") then "Wholesale" else if Text.StartsWith([Customer Type], "Corp") then "Corporate" else if Text.StartsWith([Customer Type], "Retail") then "Retail" else [Customer Type]),
     #"Reordered Columns7" = Table.ReorderColumns(#"Added Conditional Column1",{"TransactionID", "Transaction Date", "StoreID", "ProductID", "Quantity Clean", "Unit Price Clean", "Discount Clean", "Total Clean", "Payment Method Clean", "Customer Clean Type", "Customer Type", "Sales Representative", "Notes", "Channel", "Return"}),
     #"Removed Columns6" = Table.RemoveColumns(#"Reordered Columns7",{"Customer Type"}),
     #"Trimmed Text3" = Table.TransformColumns(#"Removed Columns6",{{"Notes", Text.Trim, type text}}),
-    #"Capitalized Each Word2" = Table.TransformColumns(#"Trimmed Text3",{{"Notes", Text.Proper, type text}})
+    #"Capitalized Each Word2" = Table.TransformColumns(#"Trimmed Text3",{{"Notes", Text.Proper, type text}}),
+    #"Replaced Value" = Table.ReplaceValue(#"Capitalized Each Word2","Unassgned","Unassigned",Replacer.ReplaceText,{"Channel"}),
+    #"Added Custom7" = Table.AddColumn(#"Replaced Value", "Date Status", each if [Transaction Date] > #date(2025,12,31) then "Future date - review" else "Valid"),
+    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom7",{{"Transaction Date", type date}}),
+    #"Reordered Columns8" = Table.ReorderColumns(#"Changed Type4",{"TransactionID", "StoreID", "ProductID", "Unit Price Clean", "Discount Clean", "Payment Method Clean", "Customer Clean Type", "Transaction Date", "Sales Representative", "Quantity Clean", "Total Clean", "Date Status", "Notes", "Channel", "Return"}),
+    #"Reordered Columns9" = Table.ReorderColumns(#"Reordered Columns8",{"TransactionID", "StoreID", "ProductID", "Unit Price Clean", "Discount Clean", "Quantity Clean", "Total Clean", "Payment Method Clean", "Customer Clean Type", "Transaction Date", "Sales Representative", "Date Status", "Notes", "Channel", "Return"}),
+    #"Replaced Value1" = Table.ReplaceValue(#"Reordered Columns9",60,null,Replacer.ReplaceValue,{"Unit Price Clean"}),
+    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1",999,null,Replacer.ReplaceValue,{"Quantity Clean"}),
+    #"Changed Type5" = Table.TransformColumnTypes(#"Replaced Value2",{{"Payment Method Clean", type text}, {"Customer Clean Type", type text}}),
+    #"Added Custom8" = Table.AddColumn(#"Changed Type5", "Channel Clean", each let c = Text.Lower(Text.Trim(Text.From([Channel])))
 in
-    #"Capitalized Each Word2"
-    ```
+    if Text.Contains(c, "store") then "In-store"
+    else if Text.Contains(c, "whatsapp") then "WhatsApp"
+    else if Text.Contains(c, "online") then "Online"
+    else if Text.Contains(c, "phone") then "Phone"
+    else if c = "unassigned" then "Unassigned"
+    else "Unmapped"),
+    #"Changed Type6" = Table.TransformColumnTypes(#"Added Custom8",{{"Channel Clean", type text}})
+in
+    #"Changed Type6"
+```
 
-</details>
+```m
