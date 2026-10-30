@@ -168,7 +168,7 @@ let
     Source = Csv.Document(File.Contents("C:\Users\USER\Downloads\sales_2024_raw.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
     #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"TransactionID", type text}, {"Txn_Date", type text}, {"StoreID", type text}, {"ProductID", type text}, {"Qty", type text}, {"Unit Price", type text}, {"Discount", type number}, {"Payment Method", type text}, {"Customer Type", type text}, {"Sales Rep", type text}, {"Total Amount", type text}, {"Notes", type text}}),
-    #"Added Custom" = Table.AddColumn(#"Changed Type", "Channel", each "Unassgned"),
+    #"Added Custom" = Table.AddColumn(#"Changed Type", "Channel", each "Unassigned"),
     #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"Sales Rep", "Sales Representative"}, {"Qty", "Quantity"}}),
     #"Appended Query" = Table.Combine({#"Renamed Columns", #"Sales 2025"}),
     #"Trimmed Text" = Table.TransformColumns(#"Appended Query",{{"ProductID", Text.Trim, type text}, {"StoreID", Text.Trim, type text}, {"TransactionID", Text.Trim, type text}}),
@@ -235,10 +235,9 @@ in
     #"Reordered Columns7" = Table.ReorderColumns(#"Added Conditional Column1",{"TransactionID", "Transaction Date", "StoreID", "ProductID", "Quantity Clean", "Unit Price Clean", "Discount Clean", "Total Clean", "Payment Method Clean", "Customer Clean Type", "Customer Type", "Sales Representative", "Notes", "Channel", "Return"}),
     #"Removed Columns6" = Table.RemoveColumns(#"Reordered Columns7",{"Customer Type"}),
     #"Trimmed Text3" = Table.TransformColumns(#"Removed Columns6",{{"Notes", Text.Trim, type text}}),
-    #"Capitalized Each Word2" = Table.TransformColumns(#"Trimmed Text3",{{"Notes", Text.Proper, type text}}),
-    #"Replaced Value" = Table.ReplaceValue(#"Capitalized Each Word2","Unassgned","Unassigned",Replacer.ReplaceText,{"Channel"})
+    #"Capitalized Each Word2" = Table.TransformColumns(#"Trimmed Text3",{{"Notes", Text.Proper, type text}})
 in
-    #"Replaced Value"
-```
+    #"Capitalized Each Word2"
+    ```
 
 </details>
