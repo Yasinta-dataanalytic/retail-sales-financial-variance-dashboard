@@ -260,14 +260,12 @@ This log documents every data-quality issue found in the raw sales files, how ea
 **After cleaning** (5 distinct values, 7,822 rows):
 <img width="1670" height="747" alt="Screenshot 2026-10-30 221113" src="https://github.com/user-attachments/assets/247a8454-0586-449b-8795-643a1a90ad75" />
 
-## 15. Sales Representative
-| Field | Details |
-|---|---|
-| **Issue** | The same sales representative was recorded under many spellings: 61 distinct values for only 30 real people (differences in capitalisation and extra spaces, e.g. a lower-case `zawadi k…`), plus 5 blank values. |
-| **Fix** | Trimmed extra spaces and applied Capitalize Each Word so that every spelling of a name collapses into one. |
-| **Impact** | 30 distinct representatives across 7,822 rows, down from 61, with no blank values remaining. |
-| **Insight** | Spelling variants would have counted one person as two or more, which splits their sales and understates every individual result: a representative could look like a mid-performer when their combined figure ranks them near the top. The workforce also looked twice as large as it really is (61 instead of 30). |
-| **Recommendation** | Record the sales representative with an employee ID or a fixed dropdown instead of a typed name, so individual performance, targets and commissions are calculated on the right person. |
+## 15.Sales Representative
+| **Issue** | Sales representative names had inconsistent capitalisation, leading/trailing spaces, and repeated spaces inside names (e.g. "Ali  Mrema"). Standard Trim did not remove the inner spaces, so the same person was counted as several reps. |
+| **Fix** | Trimmed, collapsed repeated inner spaces into one, and applied proper case. |
+| **Impact** | Distinct representatives reduced from 61 to 30. |
+| **Insight** | Without cleaning, rep-level sales rankings would split one person's sales across several names and understate top performers. |
+| **Recommendation** | Use a validated dropdown of employee names instead of free-text entry. |
 
 **Before cleaning** (61 distinct values, 5 blanks, rows before duplicates were removed):
 
@@ -275,8 +273,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 
 
 **After cleaning** (30 distinct values, 7,822 rows):
-<img width="1660" height="719" alt="Screenshot 2026-10-30 221644" src="https://github.com/user-attachments/assets/bf100996-71ef-466a-99fc-f1c53bfdbf1e" />
-
+<img width="1673" height="706" alt="Screenshot 2026-10-31 172633" src="https://github.com/user-attachments/assets/e4f5c2b4-b63b-4022-86ed-0c59740d927f" />
 
 ## 16. Notes
 | Field | Details |
