@@ -1,0 +1,101 @@
+TransactionID,Transaction Date,Date Status,StoreID,ProductID,Quantity,Discount,Discount Status,Unit Price,Total Amount,Payment Method,Customer Type,Sales Representative,Notes,Is Return,Channel
+Txn000001,2024-01-01,Valid,S06,P044,1,0.15,Recorded,58000,49300,Cash,Retail,Daniel Lyimo,,FALSE,Unassigned
+Txn000002,2024-01-01,Valid,S01,P060,1,0.2,Inferred from Total,3500,2800,M-Pesa,Retail,John Mwakyusa,,FALSE,Unassigned
+Txn000003,2024-01-01,Valid,S12,P004,,0.1,Recorded,192000,,M-Pesa,Wholesale,Aisha Shayo,,FALSE,Unassigned
+Txn000004,2024-01-01,Valid,S04,P004,1,0.1,Recorded,192000,172800,M-Pesa,Retail,John Mwakyusa,,FALSE,Unassigned
+Txn000005,2024-01-01,Valid,S11,P025,8,0,Blank or zero - assumed 0,8000,64000,Mixx by Yas,Retail,Frank Mwakalinga,,FALSE,Unassigned
+Txn000006,2024-01-01,Valid,S03,P015,1,0.05,Recorded,1201000,1140950,M-Pesa,Corporate,Baraka Mushi,,FALSE,Unassigned
+Txn000007,2024-01-01,Valid,S14,P021,5,0,Blank or zero - assumed 0,28500,142500,Mixx by Yas,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000008,2024-01-01,Valid,S03,P022,12,0.15,Recorded,28000,285600,Mixx by Yas,Retail,Rehema Kimaro,,FALSE,Unassigned
+Txn000009,2024-01-01,Valid,S06,P022,3,0,Blank or zero - assumed 0,28000,84000,Card,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000010,2024-01-01,Valid,S10,P025,12,0.2,Recorded,8000,76800,Bank Transfer,Retail,Joseph Chombo,,FALSE,Unassigned
+Txn000011,2024-01-01,Valid,S09,P030,4,0.1,Recorded,7500,27000,Bank Transfer,Retail,Zawadi Kessy,,FALSE,Unassigned
+Txn000012,2024-01-02,Valid,S03,P051,6,0.1,Recorded,12500,67500,Airtel Money,Wholesale,Neema Sanga,Delivery Requested,FALSE,Unassigned
+Txn000013,2024-01-02,Valid,S07,P033,2,0,Blank or zero - assumed 0,61000,122000,M-Pesa,Retail,Salma Nnko,Return - Wrong Item,TRUE,Unassigned
+Txn000014,2024-01-02,Valid,S08,P015,1,0,Blank or zero - assumed 0,1201000,1201000,Cash,Corporate,Peter Juma,,FALSE,Unassigned
+Txn000015,2024-01-02,Valid,S05,P034,3,0,Blank or zero - assumed 0,75500,226500,Airtel Money,Corporate,Daniel Lyimo,,FALSE,Unassigned
+Txn000016,2024-01-02,Valid,S12,P010,1,0.15,Recorded,578000,491300,Card,Retail,Aisha Shayo,Bulk Order,FALSE,Unassigned
+Txn000017,2024-01-02,Valid,S15,P028,5,0.15,Recorded,9500,40375,Mixx by Yas,Retail,Ali Mrema,Return - Wrong Item,TRUE,Unassigned
+Txn000018,2024-01-02,Valid,S08,P023,12,0.15,Recorded,9000,91800,Cash,Retail,Peter Juma,,FALSE,Unassigned
+Txn000019,2024-01-02,Valid,S07,P037,2,0.2,Recorded,35500,56800,M-Pesa,Corporate,Salma Nnko,,FALSE,Unassigned
+Txn000020,2024-01-02,Valid,S05,P022,2,0.1,Recorded,28000,50400,Card,Retail,Mariam Mrema,Promo,FALSE,Unassigned
+Txn000021,2024-01-02,Valid,S01,P014,2,0,Blank or zero - assumed 0,80500,161000,M-Pesa,Retail,Rehema Kimaro,,FALSE,Unassigned
+Txn000022,2024-01-02,Valid,S05,P028,6,0,Blank or zero - assumed 0,9500,28500,Card,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000023,2024-01-03,Valid,S10,P031,1,0.1,Recorded,55000,49500,M-Pesa,Corporate,Zawadi Kessy,,FALSE,Unassigned
+Txn000024,2024-01-03,Valid,S03,P028,8,0,Blank or zero - assumed 0,9500,76000,M-Pesa,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000025,2024-01-03,Valid,S06,P014,2,0,Blank or zero - assumed 0,80500,161000,Airtel Money,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000026,2024-01-03,Valid,S05,P053,3,0,Blank or zero - assumed 0,13500,40500,M-Pesa,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000027,2024-01-03,Valid,S15,P025,3,0.1,Recorded,8000,21600,Cash,Retail,Ali Mrema,,FALSE,Unassigned
+Txn000028,2024-01-03,Valid,S01,P010,1,0,Blank or zero - assumed 0,578000,578000,Airtel Money,Retail,Rehema Kimaro,Return - Damaged,TRUE,Unassigned
+Txn000029,2024-01-03,Valid,S05,P040,3,0.15,Recorded,91000,232050,Airtel Money,Retail,Daniel Lyimo,,FALSE,Unassigned
+Txn000030,2024-01-03,Valid,S09,P006,1,0,Blank or zero - assumed 0,35000,35000,Cash,Retail,Joseph Chombo,,FALSE,Unassigned
+Txn000031,2024-01-03,Valid,S01,P019,1,0,Blank or zero - assumed 0,191500,191500,Cash,Retail,Rehema Kimaro,,FALSE,Unassigned
+Txn000032,2024-01-03,Valid,S11,P001,1,0,Blank or zero - assumed 0,1277000,1277000,Airtel Money,Retail,Frank Mwakalinga,,FALSE,Unassigned
+Txn000033,2024-01-04,Valid,S07,P060,5,0,Blank or zero - assumed 0,3500,17500,M-Pesa,Retail,Peter Juma,,FALSE,Unassigned
+Txn000034,2024-01-04,Valid,S08,P015,1,0,Blank or zero - assumed 0,1201000,1201000,Mixx by Yas,Retail,Salma Nnko,,FALSE,Unassigned
+Txn000035,2024-01-04,Valid,S09,P023,12,0.05,Recorded,9000,102600,Airtel Money,Retail,Zawadi Kessy,Promo,FALSE,Unassigned
+Txn000036,2024-01-04,Valid,S01,P043,3,0.1,Recorded,5000,13500,Card,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000037,2024-01-04,Valid,S11,P033,2,0.15,Inferred from Total,61000,103700,Card,Retail,Frank Mwakalinga,,FALSE,Unassigned
+Txn000038,2024-01-04,Valid,S09,P044,4,0,Blank or zero - assumed 0,58000,232000,Mixx by Yas,Retail,Zawadi Kessy,,FALSE,Unassigned
+Txn000039,2024-01-04,Valid,S05,P036,1,0.1,Inferred from Total,39000,35100,Card,Retail,Daniel Lyimo,,FALSE,Unassigned
+Txn000040,2024-01-04,Valid,S02,P032,1,0.2,Recorded,54000,43200,M-Pesa,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000041,2024-01-04,Valid,S10,P007,1,0,Blank or zero - assumed 0,75500,75500,Cash,Retail,Zawadi Kessy,,FALSE,Unassigned
+Txn000042,2024-01-04,Valid,S13,P012,1,0,Blank or zero - assumed 0,276000,276000,M-Pesa,Retail,Michael Ndosi,,FALSE,Unassigned
+Txn000043,2024-01-04,Valid,S04,P057,10,0.15,Recorded,10000,85000,Cash,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000044,2024-01-05,Valid,S10,P046,2,0.1,Recorded,14000,25200,Card,Retail,Zawadi Kessy,Delivery Requested,FALSE,Unassigned
+Txn000045,2024-01-05,Valid,S01,P030,6,0,Blank or zero - assumed 0,7500,45000,M-Pesa,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000046,2024-01-05,Valid,S03,P006,2,0,Blank or zero - assumed 0,35000,70000,Mixx by Yas,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000047,2024-01-05,Valid,S05,P051,18,0.1,Recorded,12500,202500,M-Pesa,Wholesale,Daniel Lyimo,,FALSE,Unassigned
+Txn000048,2024-01-05,Valid,S07,P026,6,0,Blank or zero - assumed 0,16500,99000,Cash,Corporate,Salma Nnko,,FALSE,Unassigned
+Txn000049,2024-01-05,Valid,S01,P023,10,0,Blank or zero - assumed 0,9000,90000,Bank Transfer,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000050,2024-01-05,Valid,S06,P030,6,0,Blank or zero - assumed 0,7500,45000,Bank Transfer,Retail,Daniel Lyimo,,FALSE,Unassigned
+Txn000051,2024-01-05,Valid,S04,P043,2,0,Blank or zero - assumed 0,5000,10000,Bank Transfer,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000052,2024-01-05,Valid,S03,P034,3,0.1,Recorded,75500,203850,Bank Transfer,Retail,John Mwakyusa,,FALSE,Unassigned
+Txn000053,2024-01-06,Valid,S06,P035,3,0,Blank or zero - assumed 0,61500,184500,Bank Transfer,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000054,2024-01-06,Valid,S13,P028,3,0,Blank or zero - assumed 0,9500,28500,Card,Retail,Michael Ndosi,,FALSE,Unassigned
+Txn000055,2024-01-06,Valid,S07,P033,3,0,Blank or zero - assumed 0,61000,183000,M-Pesa,Retail,Peter Juma,,FALSE,Unassigned
+Txn000056,2024-01-06,Valid,S02,P028,3,0,Blank or zero - assumed 0,9500,28500,Mixx by Yas,Retail,John Mwakyusa,,FALSE,Unassigned
+Txn000057,2024-01-06,Valid,S13,P049,1,0,Blank or zero - assumed 0,38500,38500,Mixx by Yas,Retail,Michael Ndosi,,FALSE,Unassigned
+Txn000058,2024-01-06,Valid,S08,P021,4,0,Blank or zero - assumed 0,28500,114000,M-Pesa,Retail,Peter Juma,,FALSE,Unassigned
+Txn000059,2024-01-06,Valid,S03,P023,4,0.05,Recorded,9000,34200,Card,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000060,2024-01-06,Valid,S13,P046,1,0.05,Inferred from Total,14000,13300,Cash,Retail,Michael Ndosi,Delivery Requested,FALSE,Unassigned
+Txn000061,2024-01-07,Valid,S01,P011,1,0,Blank or zero - assumed 0,1653000,1653000,Mixx by Yas,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000062,2024-01-07,Valid,S04,P024,6,0,Blank or zero - assumed 0,5000,30000,Bank Transfer,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000063,2024-01-08,Valid,S11,P011,2,0.05,Recorded,1653000,3140700,Airtel Money,Retail,Frank Mwakalinga,,FALSE,Unassigned
+Txn000064,2024-01-08,Valid,S13,P003,1,0.2,Recorded,722000,577600,Cash,Wholesale,Michael Ndosi,,FALSE,Unassigned
+Txn000065,2024-01-08,Valid,S03,P038,2,0,Blank or zero - assumed 0,40500,81000,M-Pesa,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000066,2024-01-08,Valid,S06,P021,2,0.2,Recorded,28500,45600,M-Pesa,Retail,Daniel Lyimo,,FALSE,Unassigned
+Txn000067,2024-01-09,Valid,S05,P034,2,0.15,Recorded,75500,128350,M-Pesa,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000068,2024-01-09,Valid,S05,P006,2,0.1,Recorded,35000,63000,Card,Retail,Daniel Lyimo,Promo,FALSE,Unassigned
+Txn000069,2024-01-09,Valid,S02,P036,3,0.2,Recorded,39000,93600,M-Pesa,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000070,2024-01-09,Valid,S08,P013,1,0,Blank or zero - assumed 0,70500,70500,Cash,Retail,Salma Nnko,,FALSE,Unassigned
+Txn000071,2024-01-09,Valid,S04,P032,9,0.1,Recorded,54000,393660,Cash,Wholesale,Neema Sanga,Promo,FALSE,Unassigned
+Txn000072,2024-01-09,Valid,S09,P020,2,0,Blank or zero - assumed 0,114000,228000,M-Pesa,Retail,Joseph Chombo,Promo,FALSE,Unassigned
+Txn000073,2024-01-09,Valid,S01,P053,5,0.05,Recorded,13500,64125,Airtel Money,Retail,Neema Sanga,,FALSE,Unassigned
+Txn000074,2024-01-09,Valid,S01,P007,2,0,Blank or zero - assumed 0,75500,151000,Mixx by Yas,Retail,Baraka Mushi,Promo,FALSE,Unassigned
+Txn000075,2024-01-09,Valid,S02,P028,10,0,Blank or zero - assumed 0,9500,95000,M-Pesa,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000076,2024-01-09,Valid,S13,P002,2,0.1,Recorded,2078500,3741300,Card,Retail,Michael Ndosi,,FALSE,Unassigned
+Txn000077,2024-01-09,Valid,S05,P029,12,0.1,Recorded,25000,270000,Card,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000078,2024-01-09,Valid,S02,P036,1,0.1,Recorded,39000,35100,Airtel Money,Retail,Neema Sanga,Delivery Requested,FALSE,Unassigned
+Txn000079,2024-01-10,Valid,S06,P036,2,0.05,Recorded,39000,74100,Cash,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000080,2024-01-10,Valid,S09,P038,1,0.15,Recorded,40500,34425,Cash,Retail,Joseph Chombo,,FALSE,Unassigned
+Txn000081,2024-01-10,Valid,S09,P050,2,0.15,Recorded,12500,21250,Mixx by Yas,Corporate,Zawadi Kessy,,FALSE,Unassigned
+Txn000082,2024-01-10,Valid,S09,P022,2,0,Blank or zero - assumed 0,28000,56000,Card,Retail,Zawadi Kessy,Delivery Requested,FALSE,Unassigned
+Txn000083,2024-01-10,Valid,S08,P001,2,0.2,Recorded,1277000,2043200,M-Pesa,Corporate,Peter Juma,,FALSE,Unassigned
+Txn000084,2024-01-10,Valid,S01,P030,4,0,Blank or zero - assumed 0,7500,30000,M-Pesa,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000085,2024-01-10,Valid,S06,P047,1,0.05,Recorded,10000,9500,Airtel Money,Retail,Mariam Mrema,,FALSE,Unassigned
+Txn000086,2024-01-10,Valid,S01,P029,2,0,Blank or zero - assumed 0,25000,50000,Airtel Money,Retail,Baraka Mushi,,FALSE,Unassigned
+Txn000087,2024-01-10,Valid,S05,P039,1,0.15,Recorded,124500,105825,M-Pesa,Retail,Daniel Lyimo,,FALSE,Unassigned
+Txn000088,2024-01-10,Valid,S11,P007,1,0.05,Recorded,75500,71725,Cash,Retail,Frank Mwakalinga,,FALSE,Unassigned
+Txn000089,2024-01-10,Valid,S02,P040,3,0,Blank or zero - assumed 0,91000,273000,Card,Retail,Rehema Kimaro,,FALSE,Unassigned
+Txn000090,2024-01-11,Valid,S02,P008,1,0,Blank or zero - assumed 0,278500,278500,Cash,Retail,John Mwakyusa,,FALSE,Unassigned
+Txn000091,2024-01-11,Valid,S04,P003,2,0,Blank or zero - assumed 0,722000,1444000,Card,Retail,John Mwakyusa,,FALSE,Unassigned
+Txn000092,2024-01-11,Valid,S03,P007,1,0.1,Recorded,75500,67950,Airtel Money,Wholesale,Rehema Kimaro,,FALSE,Unassigned
+Txn000564,2024-03-04,Valid,S15,P040,1,0.05,Recorded,91000,86450,M-Pesa,Retail,Ali Mrema,,FALSE,Unassigned
+Txn000093,2024-01-11,Valid,S02,P010,1,0.05,Recorded,578000,549100,M-Pesa,Retail,Rehema Kimaro,,FALSE,Unassigned
+Txn000094,2024-01-11,Valid,S10,P032,3,0.1,Recorded,54000,145800,Cash,Wholesale,Zawadi Kessy,,FALSE,Unassigned
+Txn000095,2024-01-11,Valid,S11,P018,2,0.05,Recorded,108000,205200,M-Pesa,Corporate,Frank Mwakalinga,,FALSE,Unassigned
+Txn000096,2024-01-11,Valid,S09,P025,12,0,Blank or zero - assumed 0,8000,96000,M-Pesa,Retail,Joseph Chombo,,FALSE,Unassigned
+Txn000097,2024-01-12,Valid,S08,P049,4,0,Blank or zero - assumed 0,34650,138600,Cash,Retail,Salma Nnko,,FALSE,Unassigned
+Txn000098,2024-01-12,Valid,S10,P016,1,0,Blank or zero - assumed 0,474500,474500,Mixx by Yas,Retail,Joseph Chombo,,FALSE,Unassigned
+Txn000099,2024-01-12,Valid,S04,P053,2,0,Blank or zero - assumed 0,13500,27000,M-Pesa,Retail,John Mwakyusa,,FALSE,Unassigned
