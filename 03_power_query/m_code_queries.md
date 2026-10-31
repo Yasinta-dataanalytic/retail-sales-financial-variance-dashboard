@@ -159,10 +159,7 @@ in
 ```
 
 ## 10. Full query (Advanced Editor)
-
-<details>
-<summary>Click to expand</summary>
-```let
+let
     Source = Csv.Document(File.Contents("C:\Users\USER\Downloads\sales_2024_raw.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
     #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"TransactionID", type text}, {"Txn_Date", type text}, {"StoreID", type text}, {"ProductID", type text}, {"Qty", type text}, {"Unit Price", type text}, {"Discount", type number}, {"Payment Method", type text}, {"Customer Type", type text}, {"Sales Rep", type text}, {"Total Amount", type text}, {"Notes", type text}}),
@@ -250,9 +247,25 @@ in
     else if Text.Contains(c, "phone") then "Phone"
     else if c = "unassigned" then "Unassigned"
     else "Unmapped"),
-    #"Changed Type6" = Table.TransformColumnTypes(#"Added Custom8",{{"Channel Clean", type text}})
+    #"Changed Type6" = Table.TransformColumnTypes(#"Added Custom8",{{"Channel Clean", type text}}),
+    #"Renamed Columns6" = Table.RenameColumns(#"Changed Type6",{{"Unit Price Clean", "Unit Price"}, {"Discount Clean", "Discount"}, {"Quantity Clean", "Quantity"}, {"Total Clean", "Total Amount"}}),
+    #"Changed Type7" = Table.TransformColumnTypes(#"Renamed Columns6",{{"Total Amount", type number}}),
+    #"Renamed Columns7" = Table.RenameColumns(#"Changed Type7",{{"Payment Method Clean", "Payment Method"}, {"Customer Clean Type", "Customer Type"}}),
+    #"Changed Type8" = Table.TransformColumnTypes(#"Renamed Columns7",{{"Return", type logical}}),
+    #"Reordered Columns10" = Table.ReorderColumns(#"Changed Type8",{"TransactionID", "Transaction Date", "StoreID", "ProductID", "Unit Price", "Discount", "Quantity", "Total Amount", "Payment Method", "Customer Type", "Sales Representative", "Date Status", "Notes", "Channel", "Return", "Channel Clean"}),
+    #"Changed Type9" = Table.TransformColumnTypes(#"Reordered Columns10",{{"Unit Price", type number}}),
+    #"Added Custom9" = Table.AddColumn(#"Changed Type9", "Implied Discount", each if [Quantity] <> null and [Unit Price] <> null and [Total Amount] <> null and [Quantity] * [Unit Price] <> 0
+then Number.Round(1 - [Total Amount] / ([Quantity] * [Unit Price]), 2)
+else null),
+    #"Added Custom10" = Table.AddColumn(#"Added Custom9", "Discount Status", each if [Discount] > 0 then "Recorded"
+else if List.Contains({0.05, 0.1, 0.15, 0.2, 0.25}, [Implied Discount]) then "Inferred from Total"
+else "Blank or zero - assumed 0"),
+    #"Added Custom11" = Table.AddColumn(#"Added Custom10", "Discount Final", each if [Discount Status] = "Inferred from Total" then [Implied Discount] else [Discount]),
+    #"Changed Type10" = Table.TransformColumnTypes(#"Added Custom11",{{"Discount Final", type number}}),
+    #"Removed Columns7" = Table.RemoveColumns(#"Changed Type10",{"Implied Discount", "Discount"}),
+    #"Renamed Columns8" = Table.RenameColumns(#"Removed Columns7",{{"Discount Final", "Discount"}}),
+    #"Reordered Columns11" = Table.ReorderColumns(#"Renamed Columns8",{"TransactionID", "Transaction Date", "Date Status", "StoreID", "ProductID", "Quantity", "Discount", "Discount Status", "Unit Price", "Total Amount", "Payment Method", "Customer Type", "Sales Representative", "Notes", "Channel", "Return", "Channel Clean"}),
+    #"Changed Type11" = Table.TransformColumnTypes(#"Reordered Columns11",{{"Date Status", type text}, {"Discount Status", type text}})
 in
-    #"Changed Type6"
-```
-
+    #"Changed Type11"
 ```m
