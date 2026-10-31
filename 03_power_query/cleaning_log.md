@@ -97,7 +97,19 @@ This log documents every data-quality issue found in the raw sales files, how ea
 | **Impact** | Consistent `Discount Clean` used in all derived calculations. |
 | **Insight** | Mixed scales (10 vs 0.1) would overstate discounts by 100× in revenue calculations. |
 | **Recommendation** | Capture discount as a validated percentage field. |
-## 7. Unit Price
+## 7. Discount Reconciliation
+
+| Field | Details |
+|---|---|
+| **Issue** | 17% of rows had a blank Discount. These were first treated as 0%. An Excel reconciliation check showed 666 of 7,780 complete rows (8.6%) where Quantity × Unit Price × (1 − Discount) did not equal Total Amount. |
+| **Diagnosis** | 572 of the mismatches had Discount = 0. In Power Query I calculated the implied discount (1 − Total / (Quantity × Unit Price)). Values clustered at standard tiers (5%, 10%, 15%, 20%, 25%), showing that real discounts had been applied to the Total but were missing from the Discount field. |
+| **Fix** | Discount is inferred from Total only when the implied discount is exactly 5%, 10%, 15%, 20% or 25%. Every row gets a `Discount Status`: **Recorded**, **Inferred from Total**, or **Blank or zero - assumed 0**. |
+| **Impact** | Mismatches fell from 666 (8.6%) to 194 (2.5%). Mismatches with Discount = 0 fell from 572 to 100. |
+| **Insight** | Missing discounts were not random blanks. They hid real price reductions, so treating every blank as 0% would have overstated list-price revenue and understated discounting. |
+| **Recommendation** | Make Discount a mandatory field in the POS/order system, and require a reason code for any price override. |
+
+**Known limitation:** 194 rows (2.5%) still do not reconcile: 94 with a recorded discount and 100 with an implied discount outside the standard tiers. There is no evidence to show whether Total or Discount is wrong, so these values were **not changed**. Total Amount is used as recorded.
+## 8. Unit Price
 | Field | Details |
 |---|---|
 | **Issue** | `Unit Price` was stored as text with inconsistent formatting (`TZS 8,000`, `Tsh 96,500`, `10000`, `8000`), so the same price appeared under several spellings (558 distinct text values). In addition, 620 rows (8%) were empty and some values were negative. |
@@ -118,7 +130,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 
 ---
 
-## 8. Quantity
+## 9. Quantity
 | Field | Details |
 |---|---|
 | **Issue** | `Qty` was stored as text with 65 distinct values; 131 rows (about 2%) were empty and some were negative (e.g. −1, −2, −5). The raw maximum was 999, a placeholder-like quantity on a single transaction with a total of 60,000. |
@@ -137,7 +149,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 
 
 ---
-## 8b. Unknown product code
+## 9b. Unknown product code
 | Field | Details |
 |---|---|
 | **Issue** | `ProductID` held 61 distinct codes against 60 products in the product master. The extra code, `P999`, does not exist in the Products table and appears on 6 transactions. |
@@ -149,8 +161,8 @@ This log documents every data-quality issue found in the raw sales files, how ea
 **Flagged transactions:**
 <img width="1265" height="276" alt="Screenshot 2026-10-30 212815" src="https://github.com/user-attachments/assets/6e395bae-13ff-44dd-8447-5a52bd1e2828" />
 
-9.##
-## 9. Total Amount
+
+## 10. Total Amount
 | Field | Details |
 |---|---|
 | **Issue** | `Total Amount` was stored as text with inconsistent formatting (`TZS 80,000`, `80,000`, `50000`, `Tsh 991,…`), giving 3,834 distinct text values. In addition, 319 rows (4%) were empty and some values were negative. |
@@ -170,7 +182,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 
 
 
-## 10. Returns
+## 11. Returns
 | Field | Details |
 |---|---|
 | **Issue** | Returns appeared as negative quantities/amounts and as `RETURN - …` text in `Notes`. |
@@ -179,7 +191,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 | **Insight** | Summing all totals treats returns as sales, overstating revenue by about 7.8%. |
 | **Recommendation** | Record returns as a distinct transaction type, not in free-text notes. |
 
-## 11. Customer Type
+## 12. Customer Type
 | Field | Details |
 |---|---|
 | **Issue** | The customer segment was written in 13 different ways for only 3 real types (`Retail`, `RETAIL`, `retail`, `Retail Customer`, `Whole sale`, `wholesale`, `WHOLESALE`, `Corp`, `Corporate`, and others), plus 5 blank values. |
@@ -197,7 +209,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 <img width="1664" height="743" alt="Screenshot 2026-10-30 215724" src="https://github.com/user-attachments/assets/f3b38834-47fb-43ba-98d6-7568ee7f4805" />
 
 
-## 12. Payment Method
+## 13. Payment Method
 | Field | Details |
 |---|---|
 | **Issue** | The same payment method was written in many ways: 29 different spellings for 6 real methods (`M PESA`, `mpesa`, `m-pesa`, `Tigo-Pesa`, `Bank Trf`, `Direct Deposit`, `Cash Payment`, and Visa / Master Card / Debit / Credit), plus 5 blank values. |
@@ -226,7 +238,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 <img width="1670" height="704" alt="Screenshot 2026-10-30 214801" src="https://github.com/user-attachments/assets/dff37399-3919-443a-a784-7499b8239605" />
 
 
-## 13. Channel
+## 14. Channel
 | Field | Details |
 |---|---|
 | **Issue** | The 2024 file has no sales channel, so a placeholder ("Unassigned") was added; the 2025 file records channel as free text with 10 spellings for only 4 real channels (`In-store`, `In Store`, `instore`, `Whatsapp order`, `online`, `Phone Order`, and others). |
@@ -243,7 +255,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 **After cleaning** (5 distinct values, 7,822 rows):
 <img width="1670" height="747" alt="Screenshot 2026-10-30 221113" src="https://github.com/user-attachments/assets/247a8454-0586-449b-8795-643a1a90ad75" />
 
-## 14. Sales Representative
+## 15. Sales Representative
 | Field | Details |
 |---|---|
 | **Issue** | The same sales representative was recorded under many spellings: 61 distinct values for only 30 real people (differences in capitalisation and extra spaces, e.g. a lower-case `zawadi k…`), plus 5 blank values. |
@@ -261,7 +273,7 @@ This log documents every data-quality issue found in the raw sales files, how ea
 <img width="1660" height="719" alt="Screenshot 2026-10-30 221644" src="https://github.com/user-attachments/assets/bf100996-71ef-466a-99fc-f1c53bfdbf1e" />
 
 
-## 15. Notes
+## 16. Notes
 | Field | Details |
 |---|---|
 | **Issue** | Notes is about 83% blank. |
