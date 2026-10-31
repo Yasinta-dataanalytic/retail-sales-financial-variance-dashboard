@@ -90,13 +90,18 @@ This log documents every data-quality issue found in the raw sales files, how ea
 | **Recommendation** | Use system-generated, validated IDs instead of free text. |
 
 ## 6. Discount in mixed formats
+
+
 | Field | Details |
 |---|---|
 | **Issue** | Discounts recorded as `10%`, `10`, `0.1`, or blank. |
-| **Fix** | Normalised to a decimal; blank discount treated as 0. |
+| **Fix** | Normalised to a decimal (e.g. 0.10). Blank discount initially treated as 0, then refined in Section 7. |
 | **Impact** | Consistent `Discount Clean` used in all derived calculations. |
 | **Insight** | Mixed scales (10 vs 0.1) would overstate discounts by 100× in revenue calculations. |
 | **Recommendation** | Capture discount as a validated percentage field. |
+
+> Note: the blank = 0% assumption was later refined. See Section 7 (Discount Reconciliation).
+
 ## 7. Discount Reconciliation
 
 | Field | Details |
