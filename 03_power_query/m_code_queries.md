@@ -265,7 +265,13 @@ else "Blank or zero - assumed 0"),
     #"Removed Columns7" = Table.RemoveColumns(#"Changed Type10",{"Implied Discount", "Discount"}),
     #"Renamed Columns8" = Table.RenameColumns(#"Removed Columns7",{{"Discount Final", "Discount"}}),
     #"Reordered Columns11" = Table.ReorderColumns(#"Renamed Columns8",{"TransactionID", "Transaction Date", "Date Status", "StoreID", "ProductID", "Quantity", "Discount", "Discount Status", "Unit Price", "Total Amount", "Payment Method", "Customer Type", "Sales Representative", "Notes", "Channel", "Return", "Channel Clean"}),
-    #"Changed Type11" = Table.TransformColumnTypes(#"Reordered Columns11",{{"Date Status", type text}, {"Discount Status", type text}})
+    #"Changed Type11" = Table.TransformColumnTypes(#"Reordered Columns11",{{"Date Status", type text}, {"Discount Status", type text}}),
+    #"Removed Columns8" = Table.RemoveColumns(#"Changed Type11",{"Channel"}),
+    #"Renamed Columns9" = Table.RenameColumns(#"Removed Columns8",{{"Channel Clean", "Channel"}, {"Return", "Is Return"}}),
+    #"Trimmed Text4" = Table.TransformColumns(#"Renamed Columns9",{{"Sales Representative", Text.Trim, type text}}),
+    #"Capitalized Each Word3" = Table.TransformColumns(#"Trimmed Text4",{{"Sales Representative", Text.Proper, type text}}),
+    #"Replaced Value3" = Table.ReplaceValue(#"Capitalized Each Word3","  "," ",Replacer.ReplaceText,{"Sales Representative"})
 in
-    #"Changed Type11"
+    #"Replaced Value3"
+
 ```m
