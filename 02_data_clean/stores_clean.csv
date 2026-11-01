@@ -1,0 +1,16 @@
+Store ID,Store Name,Region,Store Type,Manager,Open Date,Floor Area (sqm),Status,Closed Month
+S01,Mlimani City,Dar es Salaam,Mall,Neema Kimaro,2019-03-12,320,Active,
+S02,Kariakoo,Dar es Salaam,Flagship,Juma Mwakyusa,2017-06-01,450,Active,
+S03,Mikocheni,Dar es Salaam,Outlet,Grace Mushi,2021-02-20,180,Active,
+S04,Posta,Dar es Salaam,Outlet,Hassan Ndosi,2020-09-05,160,Active,
+S05,Arusha Central,Arusha,Flagship,Peter Lyimo,2018-04-17,380,Active,
+S06,Njiro,Arusha,Outlet,Zainab Mrema,2022-01-10,150,Active,
+S07,Mwanza City,Mwanza,Flagship,Emmanuel Juma,2018-08-30,360,Active,
+S08,Rock City Mall,Mwanza,Mall,Salma Sanga,2020-11-14,280,Active,
+S09,Dodoma Central,Dodoma,Flagship,Joseph Kimaro,2019-07-22,340,Active,
+S10,Nzuguni,Dodoma,Outlet,Halima Chombo,2023-03-03,140,Active,
+S11,Mbeya Mjini,Mbeya,Flagship,David Nnko,2019-10-09,330,Active,
+S12,Stone Town,Zanzibar,Outlet,Aisha Mwakalinga,2021-12-01,170,Active,
+S13,Moshi Town,Kilimanjaro,Outlet,Michael Kessy,2022-06-18,150,Active,
+S14,Morogoro Road,Morogoro,Outlet,Fatuma Shayo,2024-07-01,155,Active,
+S15,Tanga Mjini,Tanga,Outlet,Ali Chomboh,2020-05-05,145,Closed,2024-12-01
