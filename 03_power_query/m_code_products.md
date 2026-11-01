@@ -53,7 +53,7 @@ Values are **not changed**: products whose list price is below cost are only fla
 
 ```m
 let
-    Source = Csv.Document(File.Contents("<path>\products_raw.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    Source = Csv.Document(File.Contents("C:\Users\USER\Downloads\products_raw.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
     #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}}),
     #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
     #"Filtered Rows" = Table.SelectRows(#"Promoted Headers", each ([Product ID] <> "")),
@@ -96,9 +96,13 @@ otherwise null),
     #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns3",{{"Unit Cost", type number}}),
     #"Replaced Value7" = Table.ReplaceValue(#"Changed Type3","Led Tv 43In","LED TV 43in",Replacer.ReplaceText,{"Product Name"}),
     #"Added Custom1" = Table.AddColumn(#"Replaced Value7", "Price Below Cost", each if [Unit Price] <> null and [Unit Cost] <> null and [Unit Price] < [Unit Cost] then "Yes" else "No"),
-    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom1",{{"Price Below Cost", type text}})
+    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom1",{{"Price Below Cost", type text}, {"Category", type text}}),
+    #"Reordered Columns2" = Table.ReorderColumns(#"Changed Type4",{"Product ID", "Product Name", "Category", "Unit Cost", "Unit Price", "Supplier", "Launch Date", "Active?", "Price Below Cost"}),
+    #"Uppercased Text" = Table.TransformColumns(#"Reordered Columns2",{{"Product ID", Text.Upper, type text}}),
+    #"Replaced Value8" = Table.ReplaceValue(#"Uppercased Text","Kg","kg",Replacer.ReplaceText,{"Product Name"}),
+    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value8","500G","500g",Replacer.ReplaceText,{"Product Name"}),
+    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","'S","'s",Replacer.ReplaceText,{"Product Name"}),
+    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","X6","x6",Replacer.ReplaceText,{"Product Name"}),
+    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","X12","x12",Replacer.ReplaceText,{"Product Name"})
 in
-    #"Changed Type4"
-```
-
-</details>
+    #"Replaced Value13"
