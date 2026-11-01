@@ -1,5 +1,3 @@
----
-
 # Stores
 
 Query `Stores` cleans `stores_raw.csv` into 15 stores. Steps are grouped by purpose; the full query is at the end.
@@ -40,10 +38,16 @@ Tries day-first, then month-first. Ambiguous `01/07/2024` is read as 1 July 2024
 ```m
 #"Added Custom1" = Table.AddColumn(#"Changed Type1", "Closed Month", each if Text.Contains([Status], "Dec 2024") then #date(2024,12,1) else null),
 #"Replaced Value5" = Table.ReplaceValue(#"Added Custom1","(Dec 2024)","",Replacer.ReplaceText,{"Status"}),
-#"Capitalized Each Word3" = Table.TransformColumns(#"Replaced Value5",{{"Status", Text.Proper, type text}}),
-#"Trimmed Text4" = Table.TransformColumns(#"Replaced Value6",{{"Status", Text.Trim, type text}})
+#"Capitalized Each Word3" = Table.TransformColumns(#"Replaced Value5",{{"Status", Text.Proper, type text}})
 ```
-`Closed Month` is created **before** the text is removed, so the closure date is not lost. The final trim removes the space left after `(Dec 2024)`.
+`Closed Month` is created **before** the text is removed, so the closure date is not lost.
+
+## S6. Hidden spaces in Store ID, Status and Manager
+```m
+#"Trimmed Text4" = Table.TransformColumns(#"Replaced Value6",{{"Status", Text.Trim, type text}, {"Store ID", Text.Trim, type text}}),
+#"Replaced Value7" = Table.ReplaceValue(#"Trimmed Text4","  "," ",Replacer.ReplaceText,{"Manager"})
+```
+7 of 15 Store IDs had leading or trailing spaces, which would silently break relationships with the Sales table. `Status` kept a space after `(Dec 2024)` was removed, and one manager name had a double space.
 
 <details>
 <summary>Full Advanced Editor query (Stores)</summary>
@@ -84,9 +88,10 @@ otherwise Date.FromText([Open Date],"en-US")),
     #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns2",{{"Closed Month", type date}}),
     #"Trimmed Text3" = Table.TransformColumns(#"Changed Type2",{{"Store Type", Text.Trim, type text}, {"Region", Text.Trim, type text}}),
     #"Replaced Value6" = Table.ReplaceValue(#"Trimmed Text3","Dar Es Salaam","Dar es Salaam",Replacer.ReplaceText,{"Region"}),
-    #"Trimmed Text4" = Table.TransformColumns(#"Replaced Value6",{{"Status", Text.Trim, type text}})
+    #"Trimmed Text4" = Table.TransformColumns(#"Replaced Value6",{{"Status", Text.Trim, type text}, {"Store ID", Text.Trim, type text}}),
+    #"Replaced Value7" = Table.ReplaceValue(#"Trimmed Text4","  "," ",Replacer.ReplaceText,{"Manager"})
 in
-    #"Trimmed Text4"
+    #"Replaced Value7"
 ```
 
 </details>
