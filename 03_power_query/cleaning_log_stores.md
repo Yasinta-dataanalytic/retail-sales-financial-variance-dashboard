@@ -70,8 +70,6 @@ Source: `stores_raw.csv` → Power Query query `Stores`. Result: **15 stores (S0
 
 ## 4. Store Type
 
-## 4. Store Type
-
 | Field | Details |
 |---|---|
 | **Issue** | Store Type had 6 spelling variants for 3 real types: `OUTLET`, `Outlet`, `Outlet Store`, `FLAGSHIP`, `flagship` and `Mall`. A blank row added an empty value. |
@@ -161,6 +159,15 @@ Source: `stores_raw.csv` → Power Query query `Stores`. Result: **15 stores (S0
 <img width="1661" height="719" alt="Screenshot 2026-11-01 131837" src="https://github.com/user-attachments/assets/c157d349-5f97-47ee-a3c1-fe4bfd0207db" />
 
 ---
+## 9. Hidden spaces in Store ID and Manager
+
+| Field | Details |
+|---|---|
+| **Issue** | 7 of 15 Store IDs had leading or trailing spaces (for example ` S01 `), and one manager name had a double space (`Ali  Chomboh`). The spaces were invisible in Power Query. |
+| **Fix** | Trimmed `Store ID` and replaced double spaces in `Manager`. |
+| **Impact** | `Store ID` now matches the Sales table exactly (S01–S15, all 15 found). |
+| **Insight** | A key with a hidden space silently breaks a relationship: sales for those stores would appear under a blank store in the dashboard, with no error message. This was found by checking the exported CSV, not by looking at the table. |
+| **Recommendation** | Trim every key column in every table before building relationships, and test the join with a row count. |
 
 ## Final validation
 
