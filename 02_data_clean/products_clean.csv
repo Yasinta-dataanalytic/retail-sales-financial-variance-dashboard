@@ -1,0 +1,61 @@
+Product ID,Product Name,Category,Unit Cost,Unit Price,Supplier,Launch Date,Active?,Price Below Cost
+P001,Smartphone,Electronics,999500,1277000,Tanga Traders,2021-01-31,Yes,No
+P002,Laptop,Electronics,1762000,2078500,Lake Zone Supplies,2024-02-12,Yes,No
+P003,LED TV 43in,Electronics,570000,722000,Bakhresa Group,2020-08-10,Yes,No
+P004,Bluetooth Speaker,Electronics,163000,192000,Tanga Traders,2022-09-15,Yes,No
+P005,Tablet,Electronics,660600,550500,Simba Trading,2019-10-16,Yes,Yes
+P006,Power Bank,Electronics,30500,35000,Simba Trading,2021-10-10,Yes,No
+P007,Wi-Fi Router,Electronics,65500,75500,Azam Distributors,2020-12-19,Yes,No
+P008,Smart Watch,Electronics,244500,278500,Sahara Wholesalers,2022-03-31,Yes,No
+P009,Headphones,Electronics,214000,254000,Lake Zone Supplies,2022-01-21,Yes,No
+P010,Camera,Electronics,464000,578000,Azam Distributors,2021-03-31,Yes,No
+P011,Refrigerator,Home Appliances,1232500,1653000,Lake Zone Supplies,2023-02-01,Yes,No
+P012,Microwave,Home Appliances,215500,276000,Tanga Traders,2018-10-20,Yes,No
+P013,Blender,Home Appliances,53500,70500,Azam Distributors,2021-01-10,Yes,No
+P014,Electric Kettle,Home Appliances,64000,80500,Azam Distributors,2020-07-27,Yes,No
+P015,Washing Machine,Home Appliances,850000,1201000,Sahara Wholesalers,2024-05-12,Yes,No
+P016,Gas Cooker,Home Appliances,382500,474500,Simba Trading,2023-02-23,Yes,No
+P017,Iron Box,Home Appliances,29500,38500,Lake Zone Supplies,2020-12-12,Yes,No
+P018,Standing Fan,Home Appliances,118800,108000,Tanga Traders,2019-07-21,Yes,Yes
+P019,Water Dispenser,Home Appliances,136500,191500,Simba Trading,2019-10-18,Yes,No
+P020,Rice Cooker,Home Appliances,88000,114000,Sahara Wholesalers,2023-04-02,Yes,No
+P021,Rice 5kg,Groceries,23000,28500,Coastal Distributors,2019-04-15,Yes,No
+P022,Cooking Oil 5L,Groceries,23000,28000,Bakhresa Group,2019-10-10,No,No
+P023,Sugar 2kg,Groceries,8000,9000,Tanga Traders,2023-08-13,Yes,No
+P024,Wheat Flour 2kg,Groceries,4500,5000,Simba Trading,2023-09-11,Yes,No
+P025,Tea Leaves 500g,Groceries,7000,8000,Simba Trading,2023-12-13,Yes,No
+P026,Milk 1L x6,Groceries,13500,16500,Simba Trading,2022-01-26,Yes,No
+P027,Maize Flour 5kg,Groceries,9000,10500,Azam Distributors,2018-11-19,Yes,No
+P028,Bottled Water x12,Groceries,8500,9500,Tanga Traders,2023-12-22,Yes,No
+P029,Soda Crate,Groceries,21500,25000,Simba Trading,2020-12-21,Yes,No
+P030,Laundry Soap,Groceries,6500,7500,Bakhresa Group,2020-04-03,Yes,No
+P031,Men's Shirt,Fashion,28000,55000,Bakhresa Group,2023-10-21,Yes,No
+P032,Women's Dress,Fashion,27000,54000,Kilimanjaro Imports,2024-03-18,Yes,No
+P033,Sneakers,Fashion,34000,61000,Simba Trading,2018-08-30,No,No
+P034,Leather Handbag,Fashion,37500,75500,Lake Zone Supplies,2023-10-07,Yes,No
+P035,Jeans,Fashion,32500,61500,Kilimanjaro Imports,2024-05-27,Yes,No
+P036,Kitenge Fabric,Fashion,20000,39000,Coastal Distributors,2019-01-22,Yes,No
+P037,School Uniform,Fashion,18000,35500,Kilimanjaro Imports,2018-08-10,No,No
+P038,Sandals,Fashion,23000,40500,Bakhresa Group,2019-03-24,Yes,No
+P039,Jacket,Fashion,,124500,Kilimanjaro Imports,2020-01-22,Yes,No
+P040,Backpack,Fashion,42000,91000,Kilimanjaro Imports,2024-03-04,No,No
+P041,Body Lotion,Beauty,13000,25000,Azam Distributors,2019-01-18,Yes,No
+P042,Perfume,Beauty,38000,88500,Simba Trading,2022-07-01,Yes,No
+P043,Hair Oil,Beauty,2500,5000,Tanga Traders,2023-02-07,Yes,No
+P044,Face Cream,Beauty,32000,58000,Tanga Traders,2024-03-26,Yes,No
+P045,Shampoo,Beauty,6500,11500,Kilimanjaro Imports,2024-06-30,Yes,No
+P046,Lipstick Set,Beauty,7000,14000,Tanga Traders,2023-08-22,No,No
+P047,Deodorant,Beauty,5500,10000,Sahara Wholesalers,2018-10-08,Yes,No
+P048,Sunscreen,Beauty,9500,23000,Simba Trading,2024-05-22,Yes,No
+P049,Hair Dryer,Beauty,16000,38500,Kilimanjaro Imports,2024-07-18,Yes,No
+P050,Nail Kit,Beauty,6500,12500,Lake Zone Supplies,2020-09-04,Yes,No
+P051,Exercise Books x12,Stationery,,12500,Azam Distributors,2021-07-19,No,No
+P052,Ballpoint Pens x50,Stationery,10000,16000,Coastal Distributors,2019-02-14,Yes,No
+P053,A4 Paper Ream,Stationery,7500,13500,Azam Distributors,2021-11-30,Yes,No
+P054,Marker Set,Stationery,6000,10500,Simba Trading,2024-02-04,Yes,No
+P055,Calculator,Stationery,29000,44500,Tanga Traders,2018-02-02,Yes,No
+P056,School Bag,Stationery,20000,29500,Azam Distributors,2020-12-19,Yes,No
+P057,Stapler,Stationery,5500,10000,Bakhresa Group,2021-02-28,Yes,No
+P058,File Folders x10,Stationery,5000,8000,Simba Trading,2020-12-17,Yes,No
+P059,Geometry Set,Stationery,5500,9500,Sahara Wholesalers,2022-10-01,No,No
+P060,Notebook A5,Stationery,2000,3500,Sahara Wholesalers,2020-12-08,Yes,No
