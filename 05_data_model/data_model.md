@@ -2,7 +2,8 @@
 
 The cleaned tables are loaded into the Excel **Power Pivot** data model as a star schema with two fact tables (sales and budget) that share three dimensions.
 
-![Diagram View](01_diagram_view.png)
+![Diagram View]
+<img width="1886" height="920" alt="01_diagram_view png" src="https://github.com/user-attachments/assets/2ff0988c-c748-4a26-9749-eae71735f792" />
 
 ## Tables
 
