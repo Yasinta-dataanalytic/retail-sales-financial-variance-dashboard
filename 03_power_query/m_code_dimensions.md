@@ -48,7 +48,7 @@ let
 in
     Typed
 ```
-
+[Dim_Category profile](../07_screenshots/power_query/dimensions/dim_category_profile.png).
 ## Checks
 
 | Table | Expected rows |
