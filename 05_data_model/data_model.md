@@ -33,7 +33,8 @@ All 7 relationships are **active**, **many-to-one**, with a **single filter dire
 | 6 | `Dim_Product[Category]` | `Dim_Category[Category]` |
 | 7 | `Fact_Budget[Category]` | `Dim_Category[Category]` |
 
-![Manage Relationships](02_manage_relationships.png)
+![Manage Relationships]
+<img width="1110" height="303" alt="02_manage_relationships png (2)" src="https://github.com/user-attachments/assets/8f3b4bba-5fda-43ca-bd4e-005f77e7e89a" />
 
 ## Design decisions
 
