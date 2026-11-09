@@ -48,6 +48,8 @@ All 7 relationships are **active**, **many-to-one**, with a **single filter dire
 | **Table names with `Fact_` / `Dim_`** | Renamed inside Power Pivot. The Power Query names (`Sales`, `Stores`, `Products`, `Budget targets`) are unchanged, so the M code documentation still matches. |
 | **Key columns named differently** | `StoreID` and `ProductID` in sales versus `Store ID` and `Product ID` in the dimensions. Power Pivot relates them by choice of column, not by name. |
 
+| **Calculated columns for profit** | `Fact_Sales` has three calculated columns (`Unit Cost`, `Line Profit`, `Costed Amount`) so profit can be summed row by row. See [`../06_dax/dax_measures.md`](../06_dax/dax_measures.md). |
+
 ## Known limitations
 
 - **Product `P999`** (6 sales rows) does not exist in `Dim_Product`. It appears as blank in any category view, and its sales cannot be matched to a budget category.
