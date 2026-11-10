@@ -42,10 +42,21 @@ These need `Dim_Date` marked as the date table and must be used with `Year` or `
 | Measure | Formula | Business question |
 |---|---|---|
 | `Net Sales PY` | `CALCULATE([Net Sales], SAMEPERIODLASTYEAR(Dim_Date[Date]))` | What did we sell in the same period last year? |
-| `YoY Growth %` | `DIVIDE([Net Sales] - [Net Sales PY], [Net Sales PY])` | Are we growing? |
+| `YoY Growth %` | `IF(HASONEVALUE(Dim_Date[Year]), DIVIDE([Net Sales] - [Net Sales PY], [Net Sales PY]), BLANK())` | Are we growing? Blank unless exactly one year is selected, so it can never compare two years with one |
 | `Net Sales YTD` | `TOTALYTD([Net Sales], Dim_Date[Date])` | How much have we sold so far this year? |
 
-## Profit measures
+## Discount measures
+
+Answer the project question "how much revenue is lost to discounts?". Only valid, non-return lines with a `Total Amount` are used.
+
+| Measure | Formula | Business question |
+|---|---|---|
+| `Discount Given` | `SUMX(FILTER(Fact_Sales, Fact_Sales[Is Return] = FALSE() && Fact_Sales[Date Status] = "Valid" && NOT(ISBLANK(Fact_Sales[Total Amount]))), Fact_Sales[Quantity] * Fact_Sales[Unit Price] * Fact_Sales[Discount])` | How much revenue did we give away in discounts (TZS)? |
+| `Discount Rate %` | `DIVIDE([Discount Given], SUMX(<same FILTER>, Fact_Sales[Quantity] * Fact_Sales[Unit Price]))` | What share of list-price sales was discounted? |
+
+## Profit measures (supplementary, use with caution)
+
+Profit is **not** one of the core project questions. The measures are kept in the model as an extra, with the data-quality caveat described below. They are not used as KPI cards on the Overview page.
 
 | Measure | Formula | Business question |
 |---|---|---|
@@ -53,7 +64,7 @@ These need `Dim_Date` marked as the date table and must be used with `Year` or `
 | `Costed Net Sales` | Same pattern with `SUM(Fact_Sales[Costed Amount])` | Net sales of lines with a known cost |
 | `Gross Margin %` | `DIVIDE([Gross Profit], [Costed Net Sales])` | How much of each shilling is profit? |
 | `Gross Profit PY` | `CALCULATE([Gross Profit], SAMEPERIODLASTYEAR(Dim_Date[Date]))` | Profit in the same period last year |
-| `Profit YoY %` | `DIVIDE([Gross Profit] - [Gross Profit PY], [Gross Profit PY])` | Is profit growing? |
+| `Profit YoY %` | `IF(HASONEVALUE(Dim_Date[Year]), DIVIDE([Gross Profit] - [Gross Profit PY], [Gross Profit PY]), BLANK())` | Is profit growing? Blank unless one year is selected |
 
 (`Is Return` and `Date Status` stand for `Fact_Sales[Is Return]` and `Fact_Sales[Date Status]`.)
 
@@ -72,9 +83,13 @@ These need `Dim_Date` marked as the date table and must be used with `Year` or `
 | Variance | 7,908,585 | -18,477,535 | -10,568,950 |
 | Budget Achievement % | 100.9% | 98.2% | 99.4% |
 | YoY Growth % | blank (no 2023 data) | 21.3% | |
-| Costed Net Sales | 831,967,860 | 1,001,891,635 | 1,833,859,495 |
-| Gross Profit | 111,527,560 | 231,760,335 | 343,287,895 |
-| Gross Margin % | 13.4% | 23.1% | 18.7% |
+| Discount Given | 56,335,600 | 74,419,625 | 130,755,225 |
+| Discount Rate % | 5.7% | 6.1% | 5.9% |
+| Costed Net Sales (supplementary) | 831,967,860 | 1,001,891,635 | 1,833,859,495 |
+| Gross Profit (supplementary) | 111,527,560 | 231,760,335 | 343,287,895 |
+| Gross Margin % (supplementary) | 13.4% | 23.1% | 18.7% |
+
+The profit figures match an independent Python calculation of the same logic. See the data-quality caveat below: the logic itself is affected by quantity errors in the source.
 
 Net Sales by category matches the budget view: Electronics 797,730,559, Home Appliances 472,190,800, Groceries 230,248,873, Fashion 197,729,027, Stationery 108,622,716, Beauty 81,060,175, blank (product `P999`) 1,318,900.
 
@@ -94,5 +109,11 @@ Net Sales by category matches the budget view: Electronics 797,730,559, Home App
 
 - **Grand Total of `YoY Growth %` is misleading** (121.3% in a PivotTable without a year filter). It compares both years with the 2024 total. Use it only with `Year` or `Month` on rows or a `Year` slicer.
 - **`Net Sales YTD` grand total** shows the last year-end, not a sum across years.
-- **Margin jump from 13.4% to 23.1%** is large. By category, Home Appliances moved from about -1.4% (2024) to 25.0% (2025), which explains most of it. Worth investigating before drawing conclusions.
+- **Profit is affected by quantity errors in the source.** Profit is `Total Amount - Quantity x Unit Cost`, so a wrong `Quantity` distorts it directly.
+  - 5 lines have a quantity of 350 or 500. At least three (for example `Txn000179` and `Txn000976`, product `P013`, 350 and 500 units but a total of 66,975, the price of one unit) look like typing errors. Each one adds roughly TZS 18M of cost.
+  - 12 lines with a known cost have no `Quantity` (TZS 8.75M of sales). The model treats their cost as zero, so their full revenue counts as profit.
+  - Without these lines the margin is about **18.0% in 2024 and 22.0% in 2025**, against 13.4% and 23.1% in the model. The large margin jump seen in the model is mostly caused by the quantity errors.
+  - `Units Sold` is inflated by about 2,050 units for the same reason (33,682 in the model, about 31,986 with the five lines set to one unit).
+  - These lines were not changed in Power Query because the correct quantity cannot be proven from the data. Recommendation: confirm them with the source system before using profit or units in decisions.
+- **Discount figures** use `Quantity x Unit Price x Discount`. 187 lines have a `Total Amount` that does not match list price after the recorded discount, so the discount shown is the recorded one, not the gap between list price and amount paid.
 - **Budget is draft v3**, so every variance figure inherits that risk.
