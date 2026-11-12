@@ -68,6 +68,20 @@ Profit is **not** one of the core project questions. The measures are kept in th
 
 (`Is Return` and `Date Status` stand for `Fact_Sales[Is Return]` and `Fact_Sales[Date Status]`.)
 
+## Dashboard card measures
+
+Used by the "Top Region" and "Top Category" highlight cards on the Overview page. They deliberately **ignore the slicer of their own dimension** (`ALL`), so the card keeps showing the best region (or category) overall while the other slicers (Year, Category / Region) still apply.
+
+| Measure | Formula | Business question |
+|---|---|---|
+| `Top Region` | `CONCATENATEX(TOPN(1, ADDCOLUMNS(ALL(Dim_Store[Region]), "@ns", [Net Sales]), [@ns], DESC), Dim_Store[Region], ", ")` | Which region sells the most? |
+| `Top Region Sales` | `MAXX(ALL(Dim_Store[Region]), [Net Sales])` | How much did it sell? |
+| `Top Category` | `CONCATENATEX(TOPN(1, ADDCOLUMNS(ALL(Dim_Category[Category]), "@ns", [Net Sales]), [@ns], DESC), Dim_Category[Category], ", ")` | Which category sells the most? |
+| `Top Category Sales` | `MAXX(ALL(Dim_Category[Category]), [Net Sales])` | How much did it sell? |
+| `Selected Region` | `IF(HASONEVALUE(Dim_Store[Region]), VALUES(Dim_Store[Region]), "All Regions")` | Which single region is selected in the slicer? |
+
+On the dashboard, one card switches between the two views with plain worksheet formulas: when `Selected Region` is `"All Regions"` it shows `Top Region` and `Top Region Sales`, otherwise it shows the selected region and its `Net Sales`.
+
 ## Validated results
 
 | Measure | 2024 | 2025 | Total |
@@ -108,6 +122,7 @@ Net Sales by category matches the budget view: Electronics 797,730,559, Home App
 ## Things to read carefully
 
 - **Grand Total of `YoY Growth %` is misleading** (121.3% in a PivotTable without a year filter). It compares both years with the 2024 total. Use it only with `Year` or `Month` on rows or a `Year` slicer.
+- **Time intelligence needs a contiguous date selection.** `SAMEPERIODLASTYEAR` returns an error when the selected dates have a gap, for example when the Year slicer is cleared while the Month slicer has only a few months selected (Jan 2024 and Jan 2025). Keep one year selected, or clear the Month slicer first.
 - **`Net Sales YTD` grand total** shows the last year-end, not a sum across years.
 - **Profit is affected by quantity errors in the source.** Profit is `Total Amount - Quantity x Unit Cost`, so a wrong `Quantity` distorts it directly.
   - 5 lines have a quantity of 350 or 500. At least three (for example `Txn000179` and `Txn000976`, product `P013`, 350 and 500 units but a total of 66,975, the price of one unit) look like typing errors. Each one adds roughly TZS 18M of cost.
