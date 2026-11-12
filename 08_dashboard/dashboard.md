@@ -2,7 +2,8 @@
 
 A single-page, interactive Excel dashboard built on the Power Pivot data model and the DAX measures in [`../06_dax/dax_measures.md`](../06_dax/dax_measures.md). It answers one question for management: **are we meeting budget, and where is the gap?**
 
-![Dashboard overview](../07_screenshots/dashboard_overview.png)
+![Dashboard overview]<img width="1908" height="946" alt="dashboard_overview" src="https://github.com/user-attachments/assets/998be2a7-dfbe-4f65-9715-d5566440de0d" />
+
 
 *Screenshot: Year 2025, all regions and categories selected. Data is simulated; amounts are in TZS. Budget is draft v3.*
 
