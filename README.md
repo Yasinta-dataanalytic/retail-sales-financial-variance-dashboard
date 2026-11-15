@@ -93,6 +93,12 @@ All measures are in [`06_dax/dax_measures.md`](06_dax/dax_measures.md), and ever
 
 A one-page interactive Overview with Year, Month, Region and Category slicers, eight KPI and highlight cards, six charts and a Key Insights panel. Layout, design decisions and limitations are documented in [`08_dashboard/dashboard.md`](08_dashboard/dashboard.md). The workbook is in [`04_excel_workbook/`](04_excel_workbook/).
 
+### Using the workbook
+
+Open [`04_excel_workbook/retail_sales_dashboard.xlsx`](04_excel_workbook/retail_sales_dashboard.xlsx) in desktop Excel. The slicers, PivotTables and charts work immediately, because the Data Model is stored inside the file.
+
+**To refresh the data:** the Power Query queries read the CSV files from the author's local `Downloads` folder. After downloading this repository, open **Data → Queries & Connections**, edit each query's source path and point it to the matching file in [`01_data/`](01_data/). Then click **Data → Refresh All**.
+
 ---
 
 ## 7. Key findings (2025)
