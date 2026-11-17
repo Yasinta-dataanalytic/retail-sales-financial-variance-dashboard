@@ -2,7 +2,10 @@
 
 An end-to-end Excel analytics project: cleaning deliberately messy retail data with **Power Query**, building a **Power Pivot data model**, writing **DAX measures** for Actual vs Budget variance, and presenting an interactive one-page dashboard. All data is **simulated** for a Tanzanian multi-store retailer (TZS).
 
-![Dashboard overview](07_screenshots/dashboard_overview.png)
+![Interactive dashboard demo](07_screenshots/dashboard_demo.gif)
+<img width="1100" height="548" alt="dashboard_demo" src="https://github.com/user-attachments/assets/edae6de0-35a8-4d44-a03e-a1e0e6c816a2" />
+
+
 
 > **Status:** Data cleaning, the star-schema data model, DAX measures and the Overview dashboard are complete. VBA automation and the final write-up are in progress.
 
