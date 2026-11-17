@@ -99,6 +99,18 @@ Open [`04_excel_workbook/retail_sales_dashboard.xlsx`](04_excel_workbook/retail_
 
 **To refresh the data:** the Power Query queries read the CSV files from the author's local `Downloads` folder. After downloading this repository, open **Data → Queries & Connections**, edit each query's source path and point it to the matching file in [`01_data/`](01_data/). Then click **Data → Refresh All**.
 
+### Automation (VBA)
+
+Three buttons in the dashboard header automate common tasks:
+
+| Button | What it does |
+|---|---|
+| **Reset** | Returns all slicers to the full-year view (Year = 2025) |
+| **Export PDF** | Saves a one-page PDF of the dashboard with today's date |
+| **Refresh** | Refreshes all data and shows the "Last refreshed" time |
+
+The macros are documented in [`09_vba/vba_macros.md`](09_vba/vba_macros.md). The workbook is saved as `.xlsm`; click **Enable Content** when Excel asks.
+
 ---
 
 ## 7. Key findings (2025)
