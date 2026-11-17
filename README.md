@@ -155,7 +155,7 @@ retail-sales-financial-variance-dashboard/
 - [x] Build `Dim_Date` and the star-schema data model
 - [x] DAX measures: Net Sales, Budget, Variance, YoY, discounts
 - [x] Interactive Overview dashboard with slicers
-- [ ] VBA automation
+- [x] VBA automation
 - [ ] Final insights and recommendations write-up
 
 ---
