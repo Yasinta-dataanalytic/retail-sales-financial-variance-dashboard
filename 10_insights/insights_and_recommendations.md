@@ -4,7 +4,7 @@ Findings from the 2025 Retail Sales Performance & Budget Variance dashboard. All
 
 ## Executive summary
 
-2025 was a strong growth year that narrowly missed its budget. Net Sales reached **TZS 1,035.3M**, **21.3% higher than 2024**, but finished **1.8% (TZS 18.5M) below the TZS 1,053.7M budget** (98.2% achievement; 2024 achieved 100.9%). Electronics carried the year, while Home Appliances drove most of the shortfall. Returns and discounts both rose, which trimmed margin quality.
+2025 was a strong growth year that narrowly missed its budget. Net Sales reached **TZS 1,035.3M**, **21.3% higher than 2024**, but finished **1.8% (TZS 18.5M) below the TZS 1,053.7M budget** (98.2% achievement; 2024 achieved 100.9%). Electronics carried the year, while Home Appliances drove most of the shortfall. Returns and discounts both rose, which trimmed margin quality. Data cleaning also mattered: uncorrected entry errors would have overstated revenue and split the sales rep rankings.
 
 ## Key insights
 
@@ -41,6 +41,12 @@ Findings from the 2025 Retail Sales Performance & Budget Variance dashboard. All
 - Discount rate rose from **5.7% to 6.1%** of list price.
 - Both reduce Net Sales and signal pressure on margin.
 
+### 8. Data quality changed the answers
+Power Query cleaning was not cosmetic. Without it, the headline numbers would have been wrong:
+- **Blank discounts** hid real price reductions, so the true discount rate would have been understated.
+- **Returns stored as positive amounts** would have been added to revenue instead of subtracted, overstating Net Sales.
+- **61 different spellings of 15 sales reps** would have split the Top 10 Sales Reps ranking across duplicate names.
+
 ## Recommendations
 
 | # | Recommendation | Why (evidence) | Suggested KPI to track |
@@ -54,6 +60,7 @@ Findings from the 2025 Retail Sales Performance & Budget Variance dashboard. All
 | 7 | **Tighten discount approval** to stop the drift above 6% | Discount rate up from 5.7% to 6.1% | Discount rate % |
 | 8 | **Prioritise mobile money partnerships** (promotions, fast checkout, reconciliation) | About 57% of Net Sales | Payment method mix |
 | 9 | **Set budgets from trend and capacity**, not just growth targets | Budget outgrew actual sales, so achievement fell to 98.2% | Budget achievement %, by category and store |
+| 10 | **Use validated dropdowns** for payment method, channel, customer type and sales rep at data entry | Free-text entry produced blank discounts and 61 spellings of 15 reps | Share of records failing validation checks |
 
 ## Limitations
 
