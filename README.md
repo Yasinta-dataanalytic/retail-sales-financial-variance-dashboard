@@ -125,6 +125,8 @@ The macros are documented in [`09_vba/vba_macros.md`](09_vba/vba_macros.md). The
 5. **Returns and discounts are rising**: return rate from 3.3% to 4.2%, discount rate from 5.7% to 6.1%.
 6. **Data quality matters.** Blank discounts hid real price reductions, returns stored as positive amounts would have overstated revenue, and 61 spellings of 15 sales reps would have split rankings.
 
+Full analysis with evidence, store-level detail and nine recommendations: [`10_insights/insights_and_recommendations.md`](10_insights/insights_and_recommendations.md).
+
 ### Recommendations
 - Review the Home Appliances budget and stock plan; it is the largest gap against target.
 - Investigate Mbeya Mjini and Kariakoo, and confirm the status of Tanga Mjini.
