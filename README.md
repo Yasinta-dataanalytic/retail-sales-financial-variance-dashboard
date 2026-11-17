@@ -170,6 +170,7 @@ retail-sales-financial-variance-dashboard/
 - The orphan product code `P999` does not exist in the product master.
 - `Channel` is `Unassigned` for most 2024 rows because the field was not captured in that period.
 - Tanga Mjini has a budget but no sales.
+- Refreshing the data requires updating the CSV file paths in Power Query; they point to the author's local folder.
 
 ---
 
