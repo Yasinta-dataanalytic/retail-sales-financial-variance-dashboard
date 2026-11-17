@@ -7,7 +7,7 @@ An end-to-end Excel analytics project: cleaning deliberately messy retail data w
 
 
 
-> **Status:** Data cleaning, the star-schema data model, DAX measures and the Overview dashboard are complete. VBA automation and the final write-up are in progress.
+> **Status:** > **Status:** Data cleaning, the star-schema data model, DAX measures, the interactive dashboard and VBA automation are complete. The final write-up is in progress.
 
 ---
 
