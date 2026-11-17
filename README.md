@@ -95,7 +95,7 @@ A one-page interactive Overview with Year, Month, Region and Category slicers, e
 
 ### Using the workbook
 
-Open [`04_excel_workbook/retail_sales_dashboard.xlsx`](04_excel_workbook/retail_sales_dashboard.xlsx) in desktop Excel. The slicers, PivotTables and charts work immediately, because the Data Model is stored inside the file.
+Open [`04_excel_workbook/retail_sales_dashboard.xlsm`](04_excel_workbook/retail_sales_dashboard.xlsm) in desktop Excel. The slicers, PivotTables and charts work immediately, because the Data Model is stored inside the file. Click **Enable Content** if Excel asks about macros.
 
 **To refresh the data:** the Power Query queries read the CSV files from the author's local `Downloads` folder. After downloading this repository, open **Data → Queries & Connections**, edit each query's source path and point it to the matching file in [`01_data/`](01_data/). Then click **Data → Refresh All**.
 
