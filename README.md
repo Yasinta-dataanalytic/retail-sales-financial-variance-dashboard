@@ -3,7 +3,7 @@
 An end-to-end Excel analytics project: cleaning deliberately messy retail data with **Power Query**, building a **Power Pivot data model**, writing **DAX measures** for Actual vs Budget variance, and presenting an interactive one-page dashboard. All data is **simulated** for a Tanzanian multi-store retailer (TZS).
 
 ![Interactive dashboard demo](07_screenshots/dashboard_demo.gif)
-<img width="1100" height="548" alt="dashboard_demo" src="https://github.com/user-attachments/assets/edae6de0-35a8-4d44-a03e-a1e0e6c816a2" />
+<img width="1100" height="548" alt="dashboard_demo" src="https://github.com/user-attachments/assets/a1f08bde-4bf0-4b64-97d6-c189786eb5a4" />
 
 
 
